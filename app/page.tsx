@@ -1,3 +1,9 @@
+import Hero from "./components/HeroSection";
+
 export default function Home() {
-  return <div>Home pagess</div>;
+  return (
+    <div className="bg-[#000319]">
+      <Hero />
+    </div>
+  );
 }
