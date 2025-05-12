@@ -2,7 +2,6 @@
 import React from "react";
 import { BackgroundGradient } from "./ui/background-gradient";
 import Image from "next/image";
-// import { IconAppWindow } from "@tabler/icons-react";
 
 const projects = [
   {
@@ -30,7 +29,7 @@ export function BackgroundGradientDemo() {
     <div className="md:grid lg:grid-cols-3 md:grid-cols-2 mx-auto justify-center items-center flex flex-col">
       {projects.map((project, index) => (
         <BackgroundGradient
-          className="rounded-[22px] md:h-[500px] max-w-sm p-4 sm:p-10  bg-zinc-900"
+          className="rounded-[22px] shadow md:h-[500px] max-w-sm p-4 sm:p-10  bg-zinc-900"
           key={index}
         >
           <a target="_blank" href={project.link}>
