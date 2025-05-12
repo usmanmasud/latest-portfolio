@@ -9,4 +9,4 @@ body {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
-}
+} 
