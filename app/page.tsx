@@ -1,9 +1,11 @@
-import Hero from "./components/HeroSection";
+import { BackgroundBeamsWithCollisionDemo } from "./components/BackgroundBeamsWithCollisionDemo";
+import { BackgroundGradientDemo } from "./components/Card";
 
 export default function Home() {
   return (
-    <div className="bg-[#000319]">
-      <Hero />
+    <div className="bg-gradient-to-b  from-neutral-950 to-neutral-800">
+      <BackgroundBeamsWithCollisionDemo />
+      <BackgroundGradientDemo />
     </div>
   );
 }
