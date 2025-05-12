@@ -26,38 +26,41 @@ const projects = [
 
 export function BackgroundGradientDemo() {
   return (
-    <div
-      id="projects"
-      className="md:grid lg:grid-cols-3 bg-[#262626] md:grid-cols-2 mx-auto justify-center items-center flex flex-col"
-    >
-      {projects.map((project, index) => (
-        <BackgroundGradient
-          className="rounded-[22px] md:h-[500px] max-w-sm p-4 sm:p-10  bg-zinc-900"
-          key={index}
-        >
-          <a target="_blank" href={project.link}>
-            <Image
-              src={project.image}
-              alt="jordans"
-              height="400"
-              width="400"
-              className="object-contain"
-            />
-          </a>
-          <a target="_blank" href={project.link}>
-            <p className="text-base sm:text-xl mt-4 mb-2 text-neutral-200">
-              {project.name}
-            </p>
-          </a>
+    <div className="bg-[#262626]">
+      <h2 className="heading pb-8">A Small Selection of Projects</h2>
+      <div
+        id="projects"
+        className="md:grid lg:grid-cols-3  md:grid-cols-2 mx-auto justify-center items-center flex flex-col"
+      >
+        {projects.map((project, index) => (
+          <BackgroundGradient
+            className="rounded-[22px] md:h-[500px] max-w-sm p-4 sm:p-10  bg-zinc-900"
+            key={index}
+          >
+            <a target="_blank" href={project.link}>
+              <Image
+                src={project.image}
+                alt="jordans"
+                height="400"
+                width="400"
+                className="object-contain"
+              />
+            </a>
+            <a target="_blank" href={project.link}>
+              <p className="text-base sm:text-xl mt-4 mb-2 text-neutral-200">
+                {project.name}
+              </p>
+            </a>
 
-          <p className="text-sm  text-neutral-400">{project.desc}</p>
-          <a target="_blank" href={project.link}>
-            <button className="rounded-full px-4  py-2 text-white flex items-center space-x-1  mt-4 text-[14px] font-bold bg-zinc-800">
-              <span>Visit site</span>
-            </button>
-          </a>
-        </BackgroundGradient>
-      ))}
+            <p className="text-sm  text-neutral-400">{project.desc}</p>
+            <a target="_blank" href={project.link}>
+              <button className="rounded-full px-4  py-2 text-white flex items-center space-x-1  mt-4 text-[14px] font-bold bg-zinc-800">
+                <span>Visit site</span>
+              </button>
+            </a>
+          </BackgroundGradient>
+        ))}
+      </div>
     </div>
   );
 }
