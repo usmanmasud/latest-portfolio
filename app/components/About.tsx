@@ -50,6 +50,7 @@ export function StickyScrollRevealDemo() {
       id="about"
       className="w-full bg-gradient-to-b  from-neutral-950 to-neutral-800"
     >
+      <p className="heading p-8">About Me</p>
       <StickyScroll content={content} />
     </div>
   );
