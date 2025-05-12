@@ -9,4 +9,17 @@ body {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
-} 
+}
+
+/* Add this to your global CSS file if you're using Tailwind */
+.hide-scrollbar {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
+}

@@ -52,7 +52,7 @@ const content = [
 ];
 export function StickyScrollRevealDemo() {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b  from-neutral-950 to-neutral-800">
       <StickyScroll content={content} />
     </div>
   );
