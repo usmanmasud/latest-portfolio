@@ -4,48 +4,42 @@ import { StickyScroll } from "./ui/sticky-scroll-reveal";
 
 const content = [
   {
-    title: "Collaborative Editing",
+    title: "Front End Developer",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      "I specialize in creating clean, responsive, and user-friendly interfaces. I enjoy transforming designs into interactive experiences using modern front-end technologies like HTML, CSS, JavaScript, and frameworks such as React..",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Collaborative Editing
+        Front End Developer
       </div>
     ),
   },
   {
-    title: "Real time changes",
+    title: "Full Stack Developer",
     description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      "Beyond the front end, I’m building full-stack skills that allow me to develop and manage complete web applications. I work with backend technologies like Node.js and databases to ensure seamless functionality from end to end.",
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
-        <img
-          src="/linear.webp"
-          width={300}
-          height={300}
-          className="h-full w-full object-cover"
-          alt="linear board demo"
-        />
+        Full Stack Developer
       </div>
     ),
   },
   {
-    title: "Version control",
+    title: "Collaborative Developer",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "I believe great products are built through teamwork. I enjoy working with others, sharing ideas, and contributing to a supportive and productive development environment.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-        Version control
+        Collaborative Developer
       </div>
     ),
   },
   {
-    title: "Running out of content",
+    title: "Open to Learning",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "Technology is always evolving, and so am I. I’m constantly exploring new tools, frameworks, and best practices to sharpen my skills and stay current in the ever-changing tech landscape.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Running out of content
+        Open to Learning
       </div>
     ),
   },
