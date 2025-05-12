@@ -1,6 +1,7 @@
 import { StickyScrollRevealDemo } from "./components/About";
 import { BackgroundBeamsWithCollisionDemo } from "./components/BackgroundBeamsWithCollisionDemo";
 import { BackgroundGradientDemo } from "./components/Card";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <BackgroundBeamsWithCollisionDemo />
       <StickyScrollRevealDemo />
       <BackgroundGradientDemo />
+      <Footer />
     </div>
   );
 }
