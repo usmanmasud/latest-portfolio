@@ -26,7 +26,10 @@ const projects = [
 
 export function BackgroundGradientDemo() {
   return (
-    <div className="md:grid lg:grid-cols-3 bg-[#262626] md:grid-cols-2 mx-auto justify-center items-center flex flex-col">
+    <div
+      id="projects"
+      className="md:grid lg:grid-cols-3 bg-[#262626] md:grid-cols-2 mx-auto justify-center items-center flex flex-col"
+    >
       {projects.map((project, index) => (
         <BackgroundGradient
           className="rounded-[22px] md:h-[500px] max-w-sm p-4 sm:p-10  bg-zinc-900"
