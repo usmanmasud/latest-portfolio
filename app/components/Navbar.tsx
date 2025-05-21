@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import {
   Navbar,
   NavBody,
@@ -37,9 +38,9 @@ export function NavbarDemo() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarButton variant="primary">
-              <a href="https://drive.google.com/file/d/117Z81A1CVi0uPbvzTVzt48VvKglwMWNi/view?usp=drive_link">
+              <Link href="https://drive.google.com/file/d/1NhQWO6vdYpZNMTps5HhjnyZu8HsVMFXj/view?usp=drive_link">
                 My Resume
-              </a>
+              </Link>
             </NavbarButton>
           </div>
         </NavBody>
