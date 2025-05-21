@@ -22,6 +22,24 @@ const projects = [
     desc: "A community-driven full-stack application where users can create, share, and explore AI prompts. Users can post effective prompts for various AI tools, browse by category, save favorites, and upvote useful entries. The platform encourages knowledge sharing and creativity among AI enthusiasts and professionals.",
     link: "https://promptai-orpin.vercel.app/",
   },
+  {
+    name: "DraftlyAI",
+    image: "/draftlyAI.png",
+    desc: "This app allows users to generate professional business proposals using Google’s Gemini AI. By filling out a simple form with details such as the project title, client name, description, budget, and deadline, users can instantly receive a well-structured and polished proposal. The generated content includes key sections like the introduction, project overview, deliverables, timeline, and budget—making it ideal for freelancers, agencies, or businesses looking to streamline their proposal writing process.",
+    link: "https://drafly.vercel.app/",
+  },
+  {
+    name: "CuratEd",
+    image: "/cur.jpg",
+    desc: "As the Frontend Developer Lead during my internship at Techies Club and Upskill, I led the development of a Smart YouTube Search web application. This app enables users to search for YouTube videos and returns only those directly relevant to the user’s query. The interface is clean, responsive, and built to provide a seamless search experience.",
+    link: "#",
+  },
+  {
+    name: "Expense Tracker",
+    image: "/expense.png",
+    desc: "A simple and intuitive web application that helps users manage their daily expenses. Users can add, edit, and delete transactions, categorize their spending, and view a summary of income and expenses. The app provides real-time balance updates and promotes better budgeting habits.",
+    link: "https://expense-tracter-s872r781w-usmanmasuds-projects.vercel.app/",
+  },
 ];
 
 export function BackgroundGradientDemo() {
