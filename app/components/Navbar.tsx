@@ -38,7 +38,7 @@ export function NavbarDemo() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarButton variant="primary">
-              <Link href="https://drive.google.com/file/d/1NhQWO6vdYpZNMTps5HhjnyZu8HsVMFXj/view?usp=drive_link">
+              <Link href="https://drive.google.com/file/d/1FyhCuqFYHNJuTJJbU1N_vcQC8hJrLcES/view?usp=drive_link">
                 My Resume
               </Link>
             </NavbarButton>
@@ -74,7 +74,7 @@ export function NavbarDemo() {
                 variant="primary"
                 className="w-full"
               >
-                <a href="https://drive.google.com/file/d/117Z81A1CVi0uPbvzTVzt48VvKglwMWNi/view?usp=drive_link">
+                <a href="https://drive.google.com/file/d/1FyhCuqFYHNJuTJJbU1N_vcQC8hJrLcES/view?usp=drive_link">
                   My Resume
                 </a>
               </NavbarButton>
