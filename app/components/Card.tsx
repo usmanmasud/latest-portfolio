@@ -14,7 +14,7 @@ const projects = [
     name: "AccessME",
     image: "/accessMe.png",
     desc: "An AI-powered platform designed to help users prepare for job interviews. Users can generate interview questions tailored to specific roles and practice answering them with voice input. The app uses speech recognition and feedback mechanisms to help improve confidence and performance in real interviews.",
-    link: "https://access-me.vercel.app/",
+    link: "https://access-me.vercel.app/sign-in",
   },
   {
     name: "PromtAI",
@@ -32,7 +32,7 @@ const projects = [
     name: "CuratEd",
     image: "/cur.jpg",
     desc: "As the Frontend Developer Lead during my internship at Techies Club and Upskill, I led the development of a Smart YouTube Search web application. This app enables users to search for YouTube videos and returns only those directly relevant to the user’s query. The interface is clean, responsive, and built to provide a seamless search experience.",
-    link: "#",
+    link: "https://www.behance.net/gallery/232007505/CURATED-A-Smarter-Way-To-Learn",
   },
   {
     name: "Expense Tracker",
