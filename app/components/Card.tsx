@@ -32,7 +32,7 @@ const projects = [
     name: "CuratEd",
     image: "/cur.jpg",
     desc: "As the Frontend Developer Lead during my internship at Techies Club and Upskill, I led the development of a Smart YouTube Search web application. This app enables users to search for YouTube videos and returns only those directly relevant to the user’s query. The interface is clean, responsive, and built to provide a seamless search experience.",
-    link: "https://www.behance.net/gallery/232007505/CURATED-A-Smarter-Way-To-Learn",
+    link: "https://devcurated.vercel.app/",
   },
   {
     name: "Expense Tracker",
