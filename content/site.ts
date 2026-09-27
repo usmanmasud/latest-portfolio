@@ -5,7 +5,7 @@ export const site = {
   shortName: "Usman Masud",
   initials: "UM",
   role: "Software Engineer — Cloud & DevOps",
-  url: "https://usmanmasud.vercel.app",
+  url: "https://usman.riderr.ng",
   email: "usmanmasud260@gmail.com",
   // Hidden on screen; appears only when the résumé is printed / saved as PDF.
   // It is still present in that page's HTML — remove it if you want it fully private.

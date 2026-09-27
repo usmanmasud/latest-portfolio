@@ -1,4 +1,4 @@
-# usmanmasud.vercel.app
+# usman.riderr.ng
 
 Personal site of Usman Masud Aliyu — Software Engineer, Cloud & DevOps.
 
