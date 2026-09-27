@@ -44,8 +44,9 @@ export const principles = [
 
 export const about = [
   "I'm a software engineer who has grown from building product interfaces into owning what sits underneath them — the pipelines, containers and cloud environments that decide whether software is reliable once real people use it.",
-  "Most of my shipped work is full-stack: AI-assisted tools for job seekers, freelancers and learners, built and deployed end to end. Building those taught me that the product is only half the job. The other half is getting it to production safely, keeping it up and changing it without fear.",
-  "Today I lead infrastructure for Google Developer Groups on Campus, where I run the chapter's technical platform and teach other student developers how to deploy, automate and operate what they build.",
+  "I co-founded Riderr, a logistics platform connecting customers, riders and logistics companies across Nigeria. I built across the whole product — the mobile app, the web frontend and the backend — and I run all of its infrastructure: environments, pipelines, deployments and monitoring. Being the person who ships the feature and the person paged when it breaks has shaped how I build.",
+  "Before that, most of my work was full-stack: AI-assisted tools for job seekers, freelancers and learners, built and deployed end to end. They taught me that the product is only half the job. The other half is getting it to production safely, keeping it up and changing it without fear.",
+  "I also lead infrastructure for Google Developer Groups on Campus, where I run the chapter's technical platform and teach other student developers how to deploy, automate and operate what they build.",
 ];
 
 export type Education = {

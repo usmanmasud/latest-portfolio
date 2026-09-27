@@ -17,6 +17,24 @@ export type Role = {
 
 export const roles: Role[] = [
   {
+    kind: "work",
+    title: "Co-founder & Software Engineer",
+    org: "Riderr",
+    orgUrl: "https://www.riderr.ng/",
+    start: "2025", // TODO: confirm start date
+    location: "Nigeria",
+    summary:
+      "Co-founded a logistics platform connecting customers, riders and logistics companies. Built across the mobile app, web frontend and backend, and own the entire infrastructure and DevOps operation.",
+    highlights: [
+      // TODO: add numbers where you can (deliveries, riders, partners, uptime, deploys per week).
+      "Built the iOS and Android app for delivery requests, upfront pricing and live GPS tracking.",
+      "Built the web frontend and partner dashboard for managing riders, deliveries and performance.",
+      "Designed and built backend services for rider matching, pricing and delivery lifecycle.",
+      "Own the infrastructure end to end — environments, CI/CD, deployments, monitoring and incident response.",
+    ],
+    tags: ["Mobile", "Full-stack", "DevOps", "Infrastructure"],
+  },
+  {
     kind: "leadership",
     title: "Infrastructure Lead",
     org: "Google Developer Groups on Campus", // TODO: add your university, e.g. "GDG on Campus — ABU Zaria"

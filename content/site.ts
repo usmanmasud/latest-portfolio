@@ -22,7 +22,7 @@ export const site = {
   intro:
     "Engineer working across the stack — from product interfaces and APIs to CI/CD pipelines, containers and cloud platforms. I care about systems that are simple to operate, cheap to change and boring in production.",
   description:
-    "Usman Masud Aliyu — software engineer focused on cloud infrastructure, DevOps and platform engineering. Infrastructure Lead at Google Developer Groups on Campus.",
+    "Usman Masud Aliyu — software engineer focused on cloud infrastructure, DevOps and platform engineering. Co-founder of Riderr and Infrastructure Lead at Google Developer Groups on Campus.",
 
   // The /resume page is generated from this site's content. This is the external PDF.
   resumePdf:

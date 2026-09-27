@@ -38,6 +38,43 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "riderr",
+    title: "Riderr",
+    tagline:
+      "A logistics platform connecting customers, riders and logistics companies — mobile, web, backend and infrastructure.",
+    category: "Platform",
+    role: "Co-founder & Software Engineer",
+    status: "Live",
+    featured: true,
+    image: { src: "/projects/riderr.png", width: 1600, height: 860 },
+    // TODO: replace with the exact tools (e.g. React Native/Flutter, Node.js/NestJS, PostgreSQL, AWS/GCP, Docker…)
+    stack: ["iOS & Android app", "Web frontend", "Backend API", "Real-time GPS tracking", "Cloud infrastructure", "CI/CD"],
+    links: { live: "https://www.riderr.ng/" },
+    overview:
+      "Riderr is a Nigerian logistics platform that brings customers, riders and logistics companies onto one system: instant delivery requests, smart rider matching, upfront pricing and live GPS tracking from pickup to drop-off, with a dashboard for partner companies to manage their fleets. As a co-founder and engineer I built across the whole product — the mobile app, the web frontend and the backend — and I own the infrastructure and DevOps that keep it running.",
+    problem:
+      "Businesses struggle to find dependable delivery, while capable riders have no unified marketplace. Logistics companies manage riders with phone calls and spreadsheets, and customers get no visibility into where their package is or what it will cost.",
+    approach: [
+      "Mobile app for iOS and Android: request a delivery, see the price upfront, and follow the rider live on a map.",
+      "Web frontend and partner dashboard where logistics companies manage riders, deliveries and performance.",
+      "Backend services for rider matching, pricing by distance and availability, delivery state and payments.",
+      "Real-time location pipeline streaming rider GPS updates to customers and partners.",
+    ],
+    architecture: {
+      // TODO: add a diagram at /public/projects/riderr-architecture.png and describe the real components.
+      notes: [
+        "Own the full infrastructure: environments, deployments, networking, secrets and databases.",
+        "CI/CD pipelines that build, test and ship the backend, web and mobile releases.",
+        "Monitoring, logging and alerting so issues surface before customers notice them.",
+        "Backups and recovery for production data.",
+      ],
+    },
+    // TODO: add real outcomes and numbers — deliveries completed, active riders, partner
+    // companies, cities, uptime, deploy frequency, cost savings. These are what hiring managers read first.
+    // outcomes: ["…"],
+    // metrics: [{ value: "…", label: "Deliveries completed" }],
+  },
+  {
     slug: "curated",
     title: "CuratEd",
     tagline: "Smart YouTube search that returns only the videos relevant to what you asked.",

@@ -4,15 +4,20 @@ import { RoleList } from "@/components/experience";
 import { LocalTime } from "@/components/local-time";
 import { ProjectCard } from "@/components/projects";
 import { Button, Section, StatusDot, TextLink } from "@/components/ui";
-import { leadershipRoles, roles } from "@/content/experience";
+import { leadershipRoles, roles, workRoles } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
 import { site } from "@/content/site";
 
 export default function Home() {
-  const current = leadershipRoles[0] ?? roles[0];
+  const current = [workRoles[0], leadershipRoles[0]]
+    .filter(Boolean)
+    .map((r) => `${r.title.replace(" & Software Engineer", "")}, ${r.org.replace("Google Developer Groups", "GDG")}`);
 
   const facts = [
-    { k: "Currently", v: current ? `${current.title}, ${current.org}` : site.role },
+    {
+      k: "Currently",
+      v: current.length ? current.map((c) => <span key={c} className="block">{c}</span>) : site.role,
+    },
     { k: "Focus", v: "Cloud infrastructure · CI/CD · Platform engineering" },
     { k: "Based in", v: <>{site.location} · <LocalTime /></> },
     {

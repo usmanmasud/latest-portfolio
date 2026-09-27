@@ -61,6 +61,11 @@ const personJsonLd = {
   email: `mailto:${site.email}`,
   jobTitle: site.role,
   sameAs: site.socials.map((s) => s.href),
+  worksFor: {
+    "@type": "Organization",
+    name: "Riderr",
+    url: "https://www.riderr.ng",
+  },
   memberOf: {
     "@type": "Organization",
     name: "Google Developer Groups on Campus",
