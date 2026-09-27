@@ -6,7 +6,7 @@ import { RoleList } from "@/components/experience";
 import { ArrowUpRight } from "@/components/icons";
 import { Section, TextLink } from "@/components/ui";
 import { leadershipRoles, workRoles } from "@/content/experience";
-import { about, credentials, education, principles } from "@/content/profile";
+import { about, credentials, education, educationPeriod, principles, strengths, toolbox } from "@/content/profile";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -61,6 +61,17 @@ export default function AboutPage() {
         </figure>
       </header>
 
+      <Section index={idx()} label="Strengths" title="What I bring to a team.">
+        <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
+          {strengths.map((s) => (
+            <div key={s.title} className="bg-bg p-6 md:p-7">
+              <h3 className="text-lg font-medium tracking-tight">{s.title}</h3>
+              <p className="mt-2 leading-relaxed text-muted text-pretty">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section index={idx()} label="Principles" title="How I approach the work.">
         <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
           {principles.map((p, i) => (
@@ -75,6 +86,10 @@ export default function AboutPage() {
 
       <Section index={idx()} label="Capabilities" title="What I work with.">
         <Capabilities />
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-6">
+          <p className="label shrink-0">Also</p>
+          <p className="font-mono text-xs leading-relaxed text-fg-2">{toolbox.join("  ·  ")}</p>
+        </div>
       </Section>
 
       {workRoles.length > 0 && (
@@ -100,8 +115,7 @@ export default function AboutPage() {
                     <li key={e.school + e.degree} className="border-b border-line py-5">
                       <p className="font-medium">{e.degree}</p>
                       <p className="mt-1 text-sm text-muted">
-                        {e.school} · {e.start}
-                        {e.end ? ` — ${e.end}` : " — Present"}
+                        {e.school} · {educationPeriod(e)}
                       </p>
                       {e.notes && <p className="mt-2 text-sm text-fg-2">{e.notes}</p>}
                     </li>

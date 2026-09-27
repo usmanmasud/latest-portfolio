@@ -35,9 +35,84 @@ export const roles: Role[] = [
     tags: ["Mobile", "Full-stack", "DevOps", "Infrastructure"],
   },
   {
+    kind: "work",
+    title: "Software Engineering Intern",
+    org: "National Information Technology Development Agency (NITDA)",
+    orgUrl: "https://nitda.gov.ng/",
+    start: "Oct 2025",
+    location: "Abuja",
+    summary:
+      "Building and testing web application modules at Nigeria's federal IT development agency, working with cross-functional teams to keep features aligned with project goals.",
+    highlights: [
+      "Develop and test web application modules using modern frameworks.",
+      "Collaborate with product, design and engineering teams on feature scope and delivery.",
+    ],
+    tags: ["React", "TypeScript", "Testing"],
+  },
+  {
+    kind: "work",
+    title: "Frontend Software Engineer",
+    org: "EchoBits Technologies",
+    start: "Aug 2025",
+    location: "Abuja",
+    summary:
+      "Improving an existing product's accessibility, reliability and reach across devices.",
+    highlights: [
+      "Refactored the existing codebase to meet WCAG accessibility guidelines, making the product usable for more people.",
+      "Integrated RESTful APIs to extend application functionality and support a consistent cross-platform experience.",
+    ],
+    tags: ["React", "Accessibility", "REST APIs"],
+  },
+  {
+    kind: "work",
+    title: "Front-End Developer",
+    org: "Steamdledge Limited",
+    start: "Jan 2024",
+    end: "Aug 2025",
+    summary:
+      "Built and optimised React and Next.js applications, from reusable components to server-side rendering for performance and SEO.",
+    highlights: [
+      "Built a library of reusable React and Next.js components used across the product.",
+      "Improved page performance and search visibility using Next.js server-side rendering.",
+      "Integrated third-party APIs to enrich features and streamline data retrieval.",
+      "Took part in UI reviews and QA testing before each release.",
+    ],
+    tags: ["Next.js", "SSR", "SEO", "Performance"],
+  },
+  {
+    kind: "work",
+    title: "Front-End Developer Lead",
+    org: "Lead Techies Collab & Upskill",
+    start: "Feb 2025",
+    end: "May 2025",
+    summary:
+      "Led a team of frontend developers building React and Next.js applications, including CuratEd, a smart YouTube search app.",
+    highlights: [
+      "Owned component design, task distribution and code review for the frontend team.",
+      "Mentored junior developers and managed sprint delivery timelines.",
+      "Drove responsive design across the product, improving engagement on mobile and desktop.",
+    ],
+    tags: ["Team lead", "Code review", "Mentoring", "React"],
+  },
+  {
+    kind: "work",
+    title: "Front-End Developer",
+    org: "Belsoft Systems Ltd",
+    start: "Sep 2022",
+    end: "May 2025",
+    summary:
+      "Built responsive, accessible interfaces with React, Next.js and Tailwind CSS in an Agile team.",
+    highlights: [
+      "Shipped responsive UI components in close collaboration with designers and backend engineers.",
+      "Applied inclusive design practices to improve accessibility and engagement.",
+      "Worked in Agile sprints with Git-based review workflows.",
+    ],
+    tags: ["React", "Next.js", "Tailwind CSS", "Agile"],
+  },
+  {
     kind: "leadership",
     title: "Infrastructure Lead",
-    org: "Google Developer Groups on Campus", // TODO: add your university, e.g. "GDG on Campus — ABU Zaria"
+    org: "Google Developer Groups on Campus", // TODO: confirm chapter, e.g. "GDG on Campus — Bayero University Kano"
     orgUrl: "https://gdg.community.dev/",
     start: "2025", // TODO: confirm start date
     summary:
@@ -49,20 +124,6 @@ export const roles: Role[] = [
       "Mentor members moving from first deploy to production-ready practices.",
     ],
     tags: ["Google Cloud", "Community", "Mentoring"],
-  },
-  {
-    kind: "work",
-    title: "Frontend Developer Lead (Intern)",
-    org: "Techies Club & Upskill",
-    start: "2024", // TODO: confirm dates
-    end: "2024",
-    summary:
-      "Led frontend development for CuratEd, a smart YouTube search application, from component architecture through delivery.",
-    highlights: [
-      "Set frontend conventions and coordinated work across the intern team.",
-      "Shipped a responsive search interface that surfaces only query-relevant videos.",
-    ],
-    tags: ["React", "Team lead"],
   },
 
   // ─── Template ────────────────────────────────────────────────────────────────

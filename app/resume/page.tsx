@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui";
 import { leadershipRoles, period, type Role, workRoles } from "@/content/experience";
-import { capabilities, credentials, education } from "@/content/profile";
+import { capabilities, credentials, education, educationPeriod, strengths, toolbox } from "@/content/profile";
 import { featuredProjects, projects } from "@/content/projects";
 import { site } from "@/content/site";
 
@@ -82,6 +82,7 @@ export default function ResumePage() {
                 </a>
               </li>
             ))}
+            <li className="hidden print:list-item">{site.phone}</li>
             <li className="text-muted">{site.location}</li>
           </ul>
         </header>
@@ -142,6 +143,14 @@ export default function ResumePage() {
                   <dd className="text-fg-2">{c.tools.join(", ")}</dd>
                 </div>
               ))}
+              <div className="grid gap-x-4 sm:grid-cols-[11rem_1fr]">
+                <dt className="font-medium">Tools & practices</dt>
+                <dd className="text-fg-2">{toolbox.join(", ")}</dd>
+              </div>
+              <div className="grid gap-x-4 sm:grid-cols-[11rem_1fr]">
+                <dt className="font-medium">Strengths</dt>
+                <dd className="text-fg-2">{strengths.map((s) => s.title).join(", ")}</dd>
+              </div>
             </dl>
           </section>
 
@@ -155,8 +164,11 @@ export default function ResumePage() {
                     <span className="text-fg-2">, {e.school}</span>
                   </p>
                   <p className="font-mono text-xs text-muted">
-                    {e.start} — {e.end ?? "Present"}
+                    {educationPeriod(e)}
                   </p>
+                  {e.notes && (
+                    <p className="mt-1 w-full text-[15px] text-fg-2 print:text-[10.5pt]">{e.notes}</p>
+                  )}
                 </div>
               ))}
             </section>

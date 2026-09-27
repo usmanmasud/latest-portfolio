@@ -177,6 +177,30 @@ export default async function ProjectPage({ params }: Props) {
             </Block>
           )}
 
+          {project.gallery && project.gallery.length > 0 && (
+            <Block label="Screens">
+              <div className="space-y-8">
+                {project.gallery.map((g) => (
+                  <figure key={g.src}>
+                    <div className="overflow-hidden rounded-lg border border-line bg-surface">
+                      <Image
+                        src={g.src}
+                        width={g.width}
+                        height={g.height}
+                        alt={g.caption ?? `${project.title} — screenshot`}
+                        sizes="(min-width: 768px) 672px, 100vw"
+                        className="h-auto w-full"
+                      />
+                    </div>
+                    {g.caption && (
+                      <figcaption className="mt-3 text-sm text-muted text-pretty">{g.caption}</figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </Block>
+          )}
+
           {project.architecture && (
             <Block label="Architecture">
               {project.architecture.image && (

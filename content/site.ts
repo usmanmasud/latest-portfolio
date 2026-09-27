@@ -7,9 +7,12 @@ export const site = {
   role: "Software Engineer — Cloud & DevOps",
   url: "https://usmanmasud.vercel.app",
   email: "usmanmasud260@gmail.com",
+  // Hidden on screen; appears only when the résumé is printed / saved as PDF.
+  // It is still present in that page's HTML — remove it if you want it fully private.
+  phone: "+234 913 633 5556",
 
   // Shown in the hero and footer. `timezone` drives the live local-time readout.
-  location: "Nigeria",
+  location: "Abuja, Nigeria",
   timezone: "Africa/Lagos",
   timezoneLabel: "WAT",
 
@@ -20,7 +23,7 @@ export const site = {
 
   headline: "I build software, and the infrastructure that keeps it running.",
   intro:
-    "Engineer working across the stack — from product interfaces and APIs to CI/CD pipelines, containers and cloud platforms. I care about systems that are simple to operate, cheap to change and boring in production.",
+    "Software engineer with 3+ years of experience across the stack — from product interfaces, mobile apps and APIs to CI/CD pipelines, containers and cloud platforms. I care about systems that are simple to operate, cheap to change and boring in production.",
   description:
     "Usman Masud Aliyu — software engineer focused on cloud infrastructure, DevOps and platform engineering. Co-founder of Riderr and Infrastructure Lead at Google Developer Groups on Campus.",
 

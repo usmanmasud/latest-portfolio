@@ -32,6 +32,8 @@ export type Project = {
     notes: string[];
   };
   outcomes?: string[];
+  /** Extra screenshots shown after the approach section. */
+  gallery?: { src: string; width: number; height: number; caption?: string }[];
   /** Short headline numbers, e.g. { value: "-70%", label: "deploy time" }. */
   metrics?: { value: string; label: string }[];
 };
@@ -75,18 +77,57 @@ export const projects: Project[] = [
     // metrics: [{ value: "…", label: "Deliveries completed" }],
   },
   {
+    slug: "silosense",
+    title: "SiloSense",
+    tagline:
+      "Mines Git history to show where knowledge is concentrated in too few developers — before someone leaves.",
+    category: "Software",
+    year: "2026",
+    role: "Final year project · B.Sc. Software Engineering",
+    status: "Live",
+    featured: true,
+    image: { src: "/projects/silosense.png", width: 1600, height: 900 },
+    // TODO: confirm stack (frontend, backend, database, ML library, hosting on Render)
+    stack: ["GitHub / GitLab APIs", "Git mining", "Risk scoring", "Machine learning", "Data visualisation", "Render"],
+    links: { live: "https://silosense-35ll.onrender.com/" },
+    overview:
+      "SiloSense is my final year project in Software Engineering at Bayero University Kano. It mines a repository's commit, blame and pull-request history to find components where knowledge is concentrated among too few developers, scores each one from 0 to 100, and shows the results as an interactive heatmap, with alerts and pairing recommendations to spread ownership.",
+    problem:
+      "Every codebase has files only one person really understands. Teams usually find out when that person goes on leave or resigns — the so-called truck factor. Existing tools show who committed what, but not where that concentration has become a risk.",
+    approach: [
+      "Repository mining: extract commit, blame and pull-request metadata through the GitHub and GitLab APIs.",
+      "Component-level risk score: Risk = 100 × (w₁·C + w₂·R + w₃·X), combining contributor concentration (C), recency of the main contributors (R) and complexity (X), each normalised to [0, 1].",
+      "Weights are tuned during evaluation rather than fixed, so the model can be recalibrated per project; an optional lightweight ML model refines the baseline score.",
+      "Interactive heatmap with drill-down to the files and contributors behind each score.",
+      "Historical tracking with threshold alerts, plus pairing recommendations that suggest who should work together to reduce single-owner risk.",
+    ],
+    gallery: [
+      {
+        src: "/projects/silosense-dashboard.png",
+        width: 1600,
+        height: 1000,
+        caption: "Dashboard: repository heatmap, component risk detail with contributor share, and a recommended pairing.",
+      },
+    ],
+    outcomes: [
+      "Evaluated on real open-source repositories (5–10 projects), comparing flagged components against documented contributor departures rather than synthetic data.",
+      // TODO: add your evaluation results (precision/recall, repos analysed, grade, supervisor feedback).
+    ],
+  },
+  {
     slug: "curated",
     title: "CuratEd",
     tagline: "Smart YouTube search that returns only the videos relevant to what you asked.",
     category: "Software",
     role: "Frontend Lead",
+    year: "2025",
     status: "Live",
     featured: true,
     image: { src: "/cur.jpg", width: 2880, height: 1620 },
     stack: ["React", "YouTube Data API", "Vercel"], // TODO: confirm stack
     links: { live: "https://devcurated.vercel.app/" },
     overview:
-      "A search interface over YouTube built during my internship at Techies Club and Upskill, where I led frontend development. Instead of returning everything that loosely matches a query, CuratEd filters results down to videos that are directly relevant to it.",
+      "A search interface over YouTube built at Lead Techies Collab & Upskill, where I led the frontend team. Instead of returning everything that loosely matches a query, CuratEd filters results down to videos that are directly relevant to it.",
     problem:
       "YouTube search optimises for engagement, not relevance. Learners searching for a specific topic wade through tangential content, compilations and clickbait before finding what they need.",
     approach: [
@@ -119,7 +160,6 @@ export const projects: Project[] = [
     tagline: "Generate, tailor and export a professional résumé in minutes.",
     category: "Software",
     status: "Live",
-    featured: true,
     image: { src: "/ResumeAI.png", width: 1394, height: 636 },
     stack: ["Next.js", "TypeScript", "LLM API", "PDF export"], // TODO: confirm stack
     links: { live: "https://ai-resume-builder-hjoc.vercel.app/" },
@@ -137,7 +177,6 @@ export const projects: Project[] = [
     tagline: "Business proposals generated from a short brief using Gemini.",
     category: "Software",
     status: "Live",
-    featured: true,
     image: { src: "/draftlyAI.png", width: 1905, height: 803 },
     stack: ["Next.js", "Gemini API", "Vercel"], // TODO: confirm stack
     links: { live: "https://drafly.vercel.app/" },
