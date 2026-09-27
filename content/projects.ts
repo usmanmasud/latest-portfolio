@@ -115,6 +115,34 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "natik",
+    title: "NATIK",
+    tagline:
+      "An AI operations copilot for African businesses — ask questions of your payments, customers and staff data in plain language.",
+    category: "Software",
+    year: "2025",
+    role: "Hackathon project", // TODO: add the hackathon name and your team role, e.g. "Hackathon · Full-stack engineer"
+    status: "Live",
+    featured: true,
+    image: { src: "/projects/natik.png", width: 1600, height: 1000 },
+    // TODO: confirm stack (database, auth, AI model/provider)
+    stack: ["Next.js", "TypeScript", "LLM API", "Authentication", "Vercel"],
+    links: { live: "https://natik2.natik.com.ng/" },
+    overview:
+      "NATIK is an AI operations platform I built for a hackathon. It pulls a business's fragmented data — payments, customers, staff and orders — into one place, and lets owners ask plain-language questions — “Which customers owe us money?”, “What are my biggest problems this week?” — and get specific answers, early warnings and follow-up tasks created for the team automatically.",
+    problem:
+      "Small and medium businesses across Africa run on scattered records — payments in one place, customers in another, tasks in chat threads. Owners don't have time to build dashboards or reports, so problems like overdue payments and neglected customers surface only once they've become expensive.",
+    approach: [
+      "AI business copilot: natural-language questions answered from the business's own data, with recommended actions.",
+      "Operations intelligence: one view across sales, payments, staff and customers.",
+      "Predictive alerts for late payments, overdue tasks and customers at risk of churning.",
+      "Task automation: the copilot creates follow-up tasks and assigns them to the right team member.",
+      "Accounts, onboarding and tiered plans (Free, Growth, Enterprise) priced in Naira — built as a product, not just a demo.",
+    ],
+    // TODO: add the hackathon result (placement, prize, finalists) — it's the strongest line in this case study.
+    // outcomes: ["…"],
+  },
+  {
     slug: "curated",
     title: "CuratEd",
     tagline: "Smart YouTube search that returns only the videos relevant to what you asked.",
@@ -142,7 +170,6 @@ export const projects: Project[] = [
     tagline: "AI interview practice with role-specific questions and voice answers.",
     category: "Software",
     status: "Live",
-    featured: true,
     image: { src: "/accessMe.png", width: 1845, height: 854 },
     stack: ["Next.js", "TypeScript", "Speech Recognition API", "LLM API"], // TODO: confirm stack
     links: { live: "https://access-me.vercel.app/sign-in" },
