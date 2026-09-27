@@ -1,25 +1,144 @@
 @import "tailwindcss";
 
-body {
-  padding: 0;
-  margin: 0;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Tokens ─────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg: #fafaf8;
+  --surface: #f1f0ec;
+  --fg: #151514;
+  --fg-2: #45443f;
+  --muted: #77756e;
+  --line: #e4e2dc;
+  --line-strong: #cfccc3;
+  --accent: #2b4acb;
+  --ok: #1d8348;
+  color-scheme: light;
 }
 
-@layer utilities {
-  .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
+.dark {
+  --bg: #0e0e0d;
+  --surface: #171716;
+  --fg: #ecebe6;
+  --fg-2: #bdbbb4;
+  --muted: #8a8882;
+  --line: #252523;
+  --line-strong: #363531;
+  --accent: #93a4ff;
+  --ok: #45c07a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-ok: var(--ok);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-/* Add this to your global CSS file if you're using Tailwind */
-.hide-scrollbar {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1160px;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-  /* Chrome, Safari, Opera */
+/* Small uppercase mono label used for metadata and section indices. */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@utility link {
+  text-decoration-line: underline;
+  text-decoration-color: var(--line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color 150ms ease;
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* Entrance: a short, one-time settle. No scroll-triggered theatrics. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@utility settle {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: settle 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+}
+
+/* ─── Print (the /resume page) ───────────────────────────────────────────── */
+
+@media print {
+  :root,
+  .dark {
+    --bg: #fff;
+    --surface: #fff;
+    --fg: #000;
+    --fg-2: #222;
+    --muted: #555;
+    --line: #ddd;
+    --line-strong: #bbb;
+    --accent: #000;
+  }
+  @page {
+    size: A4;
+    margin: 14mm 16mm;
+  }
 }
