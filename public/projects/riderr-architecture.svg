@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" width="1200" height="660" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#77756e"/>
+    </marker>
+    <style>
+      .box{fill:#fff;stroke:#cfccc3;stroke-width:1.5}
+      .t{font-size:19px;font-weight:600;fill:#151514}
+      .s{font-size:15px;fill:#45443f}
+      .m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;letter-spacing:1px;fill:#77756e}
+      .l{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;fill:#45443f}
+      .ln{stroke:#77756e;stroke-width:1.5;fill:none}
+      .d{stroke-dasharray:5 5}
+    </style>
+  </defs>
+
+  <rect width="1200" height="660" fill="#fafaf8"/>
+
+  <!-- zone labels -->
+  <text x="48" y="50" class="m">CLIENTS</text>
+  <text x="48" y="290" class="m">BACKEND</text>
+  <text x="48" y="510" class="m">DATA</text>
+  <text x="840" y="50" class="m">DELIVERY PIPELINE</text>
+
+  <!-- clients -->
+  <rect x="48" y="68" width="330" height="112" rx="10" class="box"/>
+  <text x="70" y="106" class="t">Mobile app</text>
+  <text x="70" y="132" class="s">React Native (Expo)</text>
+  <text x="70" y="156" class="s">iOS and Android from one codebase</text>
+
+  <rect x="418" y="68" width="330" height="112" rx="10" class="box"/>
+  <text x="440" y="106" class="t">Website and partner dashboard</text>
+  <text x="440" y="132" class="s">Next.js</text>
+  <text x="440" y="156" class="s">Deployed on Vercel</text>
+
+  <!-- api -->
+  <rect x="168" y="308" width="460" height="112" rx="10" class="box"/>
+  <text x="190" y="346" class="t">REST API</text>
+  <text x="190" y="372" class="s">NestJS and Express on Node.js</text>
+  <text x="190" y="396" class="s">Matching, pricing, deliveries, rider location</text>
+  <rect x="520" y="322" width="92" height="26" rx="13" fill="#f1f0ec" stroke="#cfccc3"/>
+  <text x="566" y="340" text-anchor="middle" class="l">Docker</text>
+
+  <!-- db -->
+  <rect x="238" y="528" width="320" height="88" rx="10" class="box"/>
+  <text x="260" y="566" class="t">MongoDB</text>
+  <text x="260" y="592" class="s">Users, riders, deliveries, locations</text>
+
+  <!-- client → api -->
+  <path d="M213 180V308" class="ln" marker-end="url(#a)"/>
+  <text x="225" y="238" class="l">HTTPS / JSON</text>
+  <text x="225" y="258" class="l">location polling</text>
+  <path d="M583 180V308" class="ln" marker-end="url(#a)"/>
+  <text x="595" y="248" class="l">HTTPS / JSON</text>
+
+  <!-- api → db -->
+  <path d="M398 420V528" class="ln" marker-end="url(#a)"/>
+
+  <!-- pipeline -->
+  <rect x="840" y="68" width="312" height="78" rx="10" class="box"/>
+  <text x="862" y="102" class="t">GitHub</text>
+  <text x="862" y="126" class="s">Merge to main</text>
+
+  <rect x="840" y="196" width="312" height="78" rx="10" class="box"/>
+  <text x="862" y="230" class="t">GitHub Actions</text>
+  <text x="862" y="254" class="s">Build and test</text>
+
+  <rect x="840" y="324" width="312" height="78" rx="10" class="box"/>
+  <text x="862" y="358" class="t">Docker image</text>
+  <text x="862" y="382" class="s">Same build in every environment</text>
+
+  <path d="M996 146V196" class="ln" marker-end="url(#a)"/>
+  <path d="M996 274V324" class="ln" marker-end="url(#a)"/>
+  <path d="M840 363H628" class="ln d" marker-end="url(#a)"/>
+  <text x="734" y="351" text-anchor="middle" class="l">deploy</text>
+</svg>

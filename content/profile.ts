@@ -12,9 +12,8 @@ export const capabilities = [
   {
     title: "Backend & Mobile",
     summary:
-      "APIs and services behind the interface, and the iOS and Android app for Riderr — delivery requests, pricing and live tracking.",
-    // TODO: add your mobile framework (React Native / Flutter) and Riderr's database.
-    tools: ["Node.js", "Express", "REST APIs", "MongoDB", "SQL", "iOS & Android"],
+      "REST APIs in NestJS and Express behind the interface, and the Riderr iOS and Android app in React Native — delivery requests, pricing and live tracking.",
+    tools: ["Node.js", "NestJS", "Express", "REST APIs", "MongoDB", "SQL", "React Native (Expo)"],
   },
   {
     title: "Cloud & DevOps",

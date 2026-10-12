@@ -35,6 +35,8 @@ export type Project = {
     image?: { src: string; width: number; height: number };
     notes: string[];
   };
+  /** Engineering choices with their trade-offs. Interviewers ask about these. */
+  decisions?: { title: string; body: string }[];
   outcomes?: string[];
   /** Extra screenshots shown after the approach section. */
   gallery?: { src: string; width: number; height: number; caption?: string }[];
@@ -53,8 +55,8 @@ export const projects: Project[] = [
     status: "Live",
     featured: true,
     image: { src: "/projects/riderr.png", width: 1600, height: 860 },
-    // TODO: replace with the exact tools (e.g. React Native/Flutter, Node.js/NestJS, PostgreSQL, AWS/GCP, Docker…)
-    stack: ["iOS & Android app", "Web frontend", "Backend API", "Real-time GPS tracking", "Docker", "GitHub Actions"],
+    // TODO: add where the backend is hosted (AWS, Render, a VPS…).
+    stack: ["React Native (Expo)", "Next.js", "NestJS", "Express", "Node.js", "MongoDB", "Docker", "GitHub Actions", "Vercel"],
     resume: false, // covered by the Riderr role in Experience
     links: { live: "https://www.riderr.ng/" },
     overview:
@@ -62,20 +64,33 @@ export const projects: Project[] = [
     problem:
       "Businesses struggle to find dependable delivery, while capable riders have no unified marketplace. Logistics companies manage riders with phone calls and spreadsheets, and customers get no visibility into where their package is or what it will cost.",
     approach: [
-      "Mobile app for iOS and Android: request a delivery, see the price upfront, and follow the rider live on a map.",
-      "Web frontend and partner dashboard where logistics companies manage riders, deliveries and performance.",
-      "Backend services for rider matching, pricing by distance and availability, delivery state and payments.",
-      "Real-time location pipeline streaming rider GPS updates to customers and partners.",
+      "Mobile app in React Native with Expo — one codebase for iOS and Android: request a delivery, see the price upfront and follow the rider on a map.",
+      "Website and partner dashboard in Next.js, where logistics companies manage riders, deliveries and performance.",
+      "REST API in NestJS and Express on Node.js, backed by MongoDB, handling rider matching, pricing by distance and availability, and the delivery lifecycle.",
+      "Live tracking by polling: the app sends the rider's GPS position to the API and customers' screens fetch the latest location at a short interval.",
     ],
     architecture: {
-      // TODO: add a diagram at /public/projects/riderr-architecture.png, name the cloud
-      // provider and database, and describe monitoring and backups if you run them.
+      image: { src: "/projects/riderr-architecture.svg", width: 1200, height: 660 },
+      // TODO: name where the API and database are hosted, and describe monitoring and backups if you run them.
       notes: [
-        "Backend and web services are packaged as Docker containers, so every environment runs the same build.",
-        "GitHub Actions pipelines build, test and deploy on every merge — no manual release steps.",
-        "One engineer owns the path from commit to production, which keeps releases small and frequent.",
+        "Two clients, one API: the Expo mobile app and the Next.js web app both talk to the same NestJS/Express REST API over HTTPS.",
+        "The API runs as a Docker container, so local, staging and production use the same build. The web app deploys on Vercel.",
+        "GitHub Actions builds and tests on every merge, then ships the new image — no manual release steps.",
       ],
     },
+    decisions: [
+      {
+        title: "Polling instead of WebSockets for live tracking",
+        // TODO: add your real polling interval and say whether you plan to move to WebSockets.
+        body: "Rider location reaches the customer by polling the API, not over a persistent socket. Polling is simple to build and debug, survives the patchy mobile networks riders work on without reconnection logic, and keeps the API stateless so it is easy to run in a container. The trade-off is that the map is a few seconds behind and every open tracking screen costs repeated requests — acceptable at current volume, and the first thing to revisit as usage grows.",
+      },
+      {
+        title: "One mobile codebase with Expo",
+        body: "A small founding team cannot maintain separate Swift and Kotlin apps. React Native with Expo gave us iOS and Android from one TypeScript codebase and the same language as the web app and API. The trade-off is less control over native modules, which matters most for location tracking — the part of the app that needed the most care.",
+      },
+      // TODO: add a third decision in your own words — e.g. how rider matching chooses a
+      // rider (nearest? availability? company?), or why MongoDB over a relational database.
+    ],
     // TODO: add real outcomes and numbers — deliveries completed, active riders, partner
     // companies, cities, uptime, deploy frequency, cost savings. These are what hiring managers read first.
     // outcomes: ["…"],

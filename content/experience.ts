@@ -39,15 +39,14 @@ export const roles: Role[] = [
     summary:
       "Co-founded a logistics platform connecting customers, riders and logistics companies. Built across the mobile app, web frontend and backend, and own how it is deployed and run.",
     highlights: [
-      // TODO: add real numbers to each line — customers, riders, deliveries, partner
-      // companies, deploy time before/after, uptime. Name the mobile framework,
-      // backend framework, database and cloud provider.
-      "Built the iOS and Android app for delivery requests, upfront pricing and live GPS tracking.",
-      "Built the web frontend and partner dashboard for managing riders, deliveries and performance.",
-      "Designed and built backend services for rider matching, pricing and the delivery lifecycle.",
-      "Own deployment end to end: Docker containers and GitHub Actions CI/CD pipelines for the backend and web apps.",
+      // TODO: end each line with a real number — customers, riders, deliveries, partner
+      // companies, deploy time before/after, uptime. Add where the backend is hosted.
+      "Built the iOS and Android app in React Native (Expo) for delivery requests, upfront pricing and live GPS tracking.",
+      "Built the Next.js website and partner dashboard for managing riders, deliveries and performance.",
+      "Designed and built the REST API in NestJS and Express with MongoDB for rider matching, pricing and the delivery lifecycle.",
+      "Own deployment end to end: Dockerised API with GitHub Actions CI/CD, and the web app on Vercel.",
     ],
-    tags: ["Mobile", "Full-stack", "Docker", "GitHub Actions"],
+    tags: ["React Native", "Next.js", "NestJS", "MongoDB", "Docker", "GitHub Actions"],
   },
   {
     kind: "work",

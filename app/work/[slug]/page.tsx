@@ -211,11 +211,25 @@ export default async function ProjectPage({ params }: Props) {
                     height={project.architecture.image.height}
                     alt={`${project.title} — architecture diagram`}
                     sizes="(min-width: 768px) 672px, 100vw"
+                    unoptimized={project.architecture.image.src.endsWith(".svg")}
                     className="h-auto w-full"
                   />
                 </div>
               )}
               <Bullets items={project.architecture.notes} />
+            </Block>
+          )}
+
+          {project.decisions && project.decisions.length > 0 && (
+            <Block label="Decisions">
+              <div className="space-y-8">
+                {project.decisions.map((d) => (
+                  <div key={d.title}>
+                    <h3 className="text-lg font-medium tracking-tight">{d.title}</h3>
+                    <p className="mt-2 text-[17px] leading-relaxed text-fg-2 text-pretty">{d.body}</p>
+                  </div>
+                ))}
+              </div>
             </Block>
           )}
 

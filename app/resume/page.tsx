@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { PrintButton } from "@/components/print-button";
-import { Button } from "@/components/ui";
 import { leadershipRoles, period, type Role, workRoles } from "@/content/experience";
 import { capabilities, credentials, education, educationPeriod, toolbox } from "@/content/profile";
 import { resumeProjects } from "@/content/projects";
@@ -59,9 +58,6 @@ export default function ResumePage() {
         <p className="label">Résumé · generated from this site</p>
         <div className="flex flex-wrap gap-2">
           <PrintButton />
-          <Button href={site.resumePdf} variant="secondary" external>
-            PDF version
-          </Button>
         </div>
       </div>
 

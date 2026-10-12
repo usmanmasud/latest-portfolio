@@ -25,10 +25,6 @@ export const site = {
   description:
     "Usman Masud Aliyu — full-stack software engineer. Co-founder of Riderr, frontend engineer at EchoBits Technologies and Infrastructure Lead at Google Developer Groups on Campus.",
 
-  // The /resume page is generated from this site's content. This is the external PDF.
-  resumePdf:
-    "https://drive.google.com/file/d/1FyhCuqFYHNJuTJJbU1N_vcQC8hJrLcES/view?usp=drive_link",
-
   socials: [
     { label: "GitHub", href: "https://github.com/usmanmasud", handle: "usmanmasud" },
     {

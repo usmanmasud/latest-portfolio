@@ -10,7 +10,7 @@ All content lives in `content/`. Pages and components read from these files, so 
 
 | File | What it controls |
 | --- | --- |
-| `content/site.ts` | Name, role, headline, email, location/timezone, availability, social links, résumé PDF link, navigation |
+| `content/site.ts` | Name, role, headline, email, location/timezone, availability, social links, navigation |
 | `content/projects.ts` | Projects, case studies (`/work/[slug]`), featured work on the home page. Contains a commented template for cloud/DevOps case studies |
 | `content/experience.ts` | Work experience and leadership roles (`kind: "work" \| "leadership"`) |
 | `content/profile.ts` | Capabilities/skills, principles, about text, education, certifications |
