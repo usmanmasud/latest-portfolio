@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 const openTo = [
   {
     title: "Full-time roles",
-    body: "Software, cloud, DevOps or platform engineering — on-site, hybrid or remote.",
+    body: "Software engineering — full-stack, frontend or backend. On-site, hybrid or remote, and open to relocation.",
   },
   {
     title: "Contracts",
-    body: "CI/CD setup, containerisation, cloud migrations and infrastructure-as-code for small teams.",
+    body: "Web and mobile product builds, plus Docker and CI/CD setup for small teams.",
   },
   {
     title: "Community",

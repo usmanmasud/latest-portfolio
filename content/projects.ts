@@ -19,6 +19,10 @@ export type Project = {
   status?: "Live" | "In progress" | "Archived";
   /** Shown on the home page when true. Keep it to 4. */
   featured?: boolean;
+  /** Set false to keep it off the résumé — e.g. when a role in Experience already covers it. */
+  resume?: boolean;
+  /** One résumé line about what you engineered (not what the product does). */
+  engineering?: string;
   image?: { src: string; width: number; height: number };
   stack: string[];
   links?: { live?: string; repo?: string; writeup?: string };
@@ -50,10 +54,11 @@ export const projects: Project[] = [
     featured: true,
     image: { src: "/projects/riderr.png", width: 1600, height: 860 },
     // TODO: replace with the exact tools (e.g. React Native/Flutter, Node.js/NestJS, PostgreSQL, AWS/GCP, Docker…)
-    stack: ["iOS & Android app", "Web frontend", "Backend API", "Real-time GPS tracking", "Cloud infrastructure", "CI/CD"],
+    stack: ["iOS & Android app", "Web frontend", "Backend API", "Real-time GPS tracking", "Docker", "GitHub Actions"],
+    resume: false, // covered by the Riderr role in Experience
     links: { live: "https://www.riderr.ng/" },
     overview:
-      "Riderr is a Nigerian logistics platform that brings customers, riders and logistics companies onto one system: instant delivery requests, smart rider matching, upfront pricing and live GPS tracking from pickup to drop-off, with a dashboard for partner companies to manage their fleets. As a co-founder and engineer I built across the whole product — the mobile app, the web frontend and the backend — and I own the infrastructure and DevOps that keep it running.",
+      "Riderr is a Nigerian logistics platform that brings customers, riders and logistics companies onto one system: instant delivery requests, smart rider matching, upfront pricing and live GPS tracking from pickup to drop-off, with a dashboard for partner companies to manage their fleets. As a co-founder and engineer I built across the whole product — the mobile app, the web frontend and the backend — and I own how it is deployed and run.",
     problem:
       "Businesses struggle to find dependable delivery, while capable riders have no unified marketplace. Logistics companies manage riders with phone calls and spreadsheets, and customers get no visibility into where their package is or what it will cost.",
     approach: [
@@ -63,12 +68,12 @@ export const projects: Project[] = [
       "Real-time location pipeline streaming rider GPS updates to customers and partners.",
     ],
     architecture: {
-      // TODO: add a diagram at /public/projects/riderr-architecture.png and describe the real components.
+      // TODO: add a diagram at /public/projects/riderr-architecture.png, name the cloud
+      // provider and database, and describe monitoring and backups if you run them.
       notes: [
-        "Own the full infrastructure: environments, deployments, networking, secrets and databases.",
-        "CI/CD pipelines that build, test and ship the backend, web and mobile releases.",
-        "Monitoring, logging and alerting so issues surface before customers notice them.",
-        "Backups and recovery for production data.",
+        "Backend and web services are packaged as Docker containers, so every environment runs the same build.",
+        "GitHub Actions pipelines build, test and deploy on every merge — no manual release steps.",
+        "One engineer owns the path from commit to production, which keeps releases small and frequent.",
       ],
     },
     // TODO: add real outcomes and numbers — deliveries completed, active riders, partner
@@ -89,6 +94,8 @@ export const projects: Project[] = [
     image: { src: "/projects/silosense.png", width: 1600, height: 900 },
     // TODO: confirm stack (frontend, backend, database, ML library, hosting on Render)
     stack: ["GitHub / GitLab APIs", "Git mining", "Risk scoring", "Machine learning", "Data visualisation", "Render"],
+    engineering:
+      "Mines commit, blame and pull-request history through the GitHub and GitLab APIs and scores every component 0–100 for knowledge-concentration risk (contributor concentration, recency, complexity); validated against real contributor departures in 5–10 open-source repositories.",
     links: { live: "https://silosense-35ll.onrender.com/" },
     overview:
       "SiloSense is my final year project in Software Engineering at Bayero University Kano. It mines a repository's commit, blame and pull-request history to find components where knowledge is concentrated among too few developers, scores each one from 0 to 100, and shows the results as an interactive heatmap, with alerts and pairing recommendations to spread ownership.",
@@ -127,6 +134,10 @@ export const projects: Project[] = [
     image: { src: "/projects/natik.png", width: 1600, height: 1000 },
     // TODO: confirm stack (database, auth, AI model/provider)
     stack: ["Next.js", "TypeScript", "LLM API", "Authentication", "Vercel"],
+    // TODO: say HOW the model reads business data (text-to-SQL? retrieval? tool calls?)
+    // and how you kept answers accurate and each business's data private.
+    engineering:
+      "Hackathon build in Next.js: an LLM copilot that answers plain-language questions over a business's payments, customers and tasks, raises alerts and creates follow-up tasks, with accounts, onboarding and tiered plans.",
     links: { live: "https://natik2.natik.com.ng/" },
     overview:
       "NATIK is an AI operations platform I built for a hackathon. It pulls a business's fragmented data — payments, customers, staff and orders — into one place, and lets owners ask plain-language questions — “Which customers owe us money?”, “What are my biggest problems this week?” — and get specific answers, early warnings and follow-up tasks created for the team automatically.",
@@ -153,6 +164,7 @@ export const projects: Project[] = [
     featured: true,
     image: { src: "/cur.jpg", width: 2880, height: 1620 },
     stack: ["React", "YouTube Data API", "Vercel"], // TODO: confirm stack
+    resume: false, // covered by the Lead Techies role in Experience
     links: { live: "https://devcurated.vercel.app/" },
     overview:
       "A search interface over YouTube built at Lead Techies Collab & Upskill, where I led the frontend team. Instead of returning everything that loosely matches a query, CuratEd filters results down to videos that are directly relevant to it.",
@@ -172,6 +184,8 @@ export const projects: Project[] = [
     status: "Live",
     image: { src: "/accessMe.png", width: 1845, height: 854 },
     stack: ["Next.js", "TypeScript", "Speech Recognition API", "LLM API"], // TODO: confirm stack
+    engineering:
+      "Generates role-specific interview questions with an LLM and captures spoken answers through the browser's speech recognition API to give feedback on each response.",
     links: { live: "https://access-me.vercel.app/sign-in" },
     overview:
       "An AI-powered platform for interview preparation. Users generate questions tailored to a specific role, answer them out loud, and receive feedback on their responses.",
@@ -279,3 +293,6 @@ export function getProject(slug: string) {
 }
 
 export const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
+
+// Résumé projects skip anything already covered by a role in Experience.
+export const resumeProjects = projects.filter((p) => p.resume !== false).slice(0, 2);

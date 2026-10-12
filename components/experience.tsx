@@ -10,7 +10,10 @@ export function RoleList({ roles, detailed = false }: { roles: Role[]; detailed?
           key={`${role.org}-${role.title}`}
           className="grid gap-x-8 gap-y-2 border-b border-line py-7 md:grid-cols-[10rem_1fr]"
         >
-          <p className="font-mono text-xs text-muted tabular-nums md:pt-1">{period(role)}</p>
+          <div className="font-mono text-xs text-muted md:pt-1">
+            <p className="tabular-nums">{period(role)}</p>
+            {role.type && <p className="mt-1">{role.type}</p>}
+          </div>
           <div>
             <h3 className="text-lg font-medium tracking-tight">
               {role.title}

@@ -1,6 +1,6 @@
 # usman.riderr.ng
 
-Personal site of Usman Masud Aliyu — Software Engineer, Cloud & DevOps.
+Personal site of Usman Masud Aliyu — Software Engineer, Full-Stack & Cloud.
 
 Built with Next.js 15 (App Router), React 19, TypeScript and Tailwind CSS v4. Every page is statically generated.
 

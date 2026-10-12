@@ -4,28 +4,26 @@ export const site = {
   name: "Usman Masud Aliyu",
   shortName: "Usman Masud",
   initials: "UM",
-  role: "Software Engineer — Cloud & DevOps",
+  role: "Software Engineer — Full-Stack & Cloud",
   url: "https://usman.riderr.ng",
   email: "usmanmasud260@gmail.com",
-  // Hidden on screen; appears only when the résumé is printed / saved as PDF.
-  // It is still present in that page's HTML — remove it if you want it fully private.
-  phone: "+234 913 633 5556",
 
   // Shown in the hero and footer. `timezone` drives the live local-time readout.
   location: "Abuja, Nigeria",
+  relocation: "Open to relocation",
   timezone: "Africa/Lagos",
   timezoneLabel: "WAT",
 
   availability: {
     open: true,
-    label: "Open to full-time roles and select contracts",
+    label: "Open to full-time roles · open to relocation",
   },
 
   headline: "I build software, and the infrastructure that keeps it running.",
   intro:
-    "Software engineer with 3+ years of experience across the stack — from product interfaces, mobile apps and APIs to CI/CD pipelines, containers and cloud platforms. I care about systems that are simple to operate, cheap to change and boring in production.",
+    "Software engineer building production software since 2022 — through volunteer work, internships, a full-time frontend role and a logistics startup I co-founded. I work across the stack, from interfaces, mobile apps and APIs to the Docker and CI/CD pipelines that ship them.",
   description:
-    "Usman Masud Aliyu — software engineer focused on cloud infrastructure, DevOps and platform engineering. Co-founder of Riderr and Infrastructure Lead at Google Developer Groups on Campus.",
+    "Usman Masud Aliyu — full-stack software engineer. Co-founder of Riderr, frontend engineer at EchoBits Technologies and Infrastructure Lead at Google Developer Groups on Campus.",
 
   // The /resume page is generated from this site's content. This is the external PDF.
   resumePdf:

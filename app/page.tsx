@@ -18,7 +18,7 @@ export default function Home() {
       k: "Currently",
       v: current.length ? current.map((c) => <span key={c} className="block">{c}</span>) : site.role,
     },
-    { k: "Focus", v: "Cloud infrastructure · CI/CD · Platform engineering" },
+    { k: "Focus", v: "Full-stack product engineering · Docker · CI/CD" },
     { k: "Based in", v: <>{site.location} · <LocalTime /></> },
     {
       k: "Status",

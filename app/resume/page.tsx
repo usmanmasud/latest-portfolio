@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 import { PrintButton } from "@/components/print-button";
 import { Button } from "@/components/ui";
 import { leadershipRoles, period, type Role, workRoles } from "@/content/experience";
-import { capabilities, credentials, education, educationPeriod, strengths, toolbox } from "@/content/profile";
-import { featuredProjects, projects } from "@/content/projects";
+import { capabilities, credentials, education, educationPeriod, toolbox } from "@/content/profile";
+import { resumeProjects } from "@/content/projects";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -13,37 +13,44 @@ export const metadata: Metadata = {
   alternates: { canonical: "/resume" },
 };
 
+const body = "text-[15px] leading-relaxed text-fg-2 print:text-[9pt] print:leading-snug";
+
 function Heading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-4 border-b border-line pb-2 font-mono text-[11px] tracking-[0.08em] text-muted uppercase">
+    <h2 className="mb-4 border-b border-line pb-2 font-mono text-[11px] tracking-[0.08em] text-muted uppercase print:mb-1.5 print:pb-0.5 print:text-[8pt]">
       {children}
     </h2>
   );
 }
 
 function RoleEntry({ role }: { role: Role }) {
+  const bullets = role.highlights ?? [];
   return (
     <div className="break-inside-avoid">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-        <h3 className="font-medium">
+        <h3 className="font-medium print:text-[10pt]">
           {role.title}, <span className="font-normal text-fg-2">{role.org}</span>
+          {role.orgNote && <span className="font-normal text-muted"> — {role.orgNote}</span>}
         </h3>
-        <p className="font-mono text-xs text-muted tabular-nums">{period(role)}</p>
+        <p className="font-mono text-xs text-muted tabular-nums print:text-[8pt]">
+          {role.type && role.type !== "Co-founder" ? `${role.type} · ` : ""}
+          {period(role)}
+        </p>
       </div>
-      <p className="mt-1.5 text-[15px] leading-relaxed text-fg-2 print:text-[10.5pt]">{role.summary}</p>
-      {role.highlights && (
-        <ul className="mt-2 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-fg-2 marker:text-line-strong print:text-[10.5pt]">
-          {role.highlights.map((h) => (
+      {bullets.length > 0 ? (
+        <ul className={`mt-1.5 list-disc space-y-1 pl-5 marker:text-line-strong print:mt-1 print:space-y-0 ${body}`}>
+          {bullets.map((h) => (
             <li key={h}>{h}</li>
           ))}
         </ul>
+      ) : (
+        <p className={`mt-1.5 print:mt-1 ${body}`}>{role.summary}</p>
       )}
     </div>
   );
 }
 
 export default function ResumePage() {
-  const selected = featuredProjects.length > 0 ? featuredProjects : projects.slice(0, 4);
   const host = site.url.replace(/^https?:\/\//, "");
 
   return (
@@ -59,12 +66,12 @@ export default function ResumePage() {
       </div>
 
       <article className="mx-auto max-w-[52rem] rounded-lg border border-line bg-bg p-6 sm:p-12 print:max-w-none print:border-0 print:p-0">
-        <header className="flex flex-wrap items-end justify-between gap-6 border-b border-fg pb-6">
+        <header className="flex flex-wrap items-end justify-between gap-6 border-b border-fg pb-6 print:pb-2">
           <div>
-            <h1 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl print:text-[24pt]">{site.name}</h1>
-            <p className="mt-1.5 text-fg-2">{site.role}</p>
+            <h1 className="text-3xl font-medium tracking-[-0.03em] sm:text-4xl print:text-[20pt]">{site.name}</h1>
+            <p className="mt-1.5 text-fg-2 print:mt-0.5 print:text-[10pt]">{site.role}</p>
           </div>
-          <ul className="space-y-0.5 text-sm text-fg-2 sm:text-right print:text-[9.5pt]">
+          <ul className="space-y-0.5 text-sm text-fg-2 sm:text-right print:space-y-0 print:text-right print:text-[8.5pt]">
             <li>
               <a href={`mailto:${site.email}`} className="link">
                 {site.email}
@@ -82,21 +89,22 @@ export default function ResumePage() {
                 </a>
               </li>
             ))}
-            <li className="hidden print:list-item">{site.phone}</li>
-            <li className="text-muted">{site.location}</li>
+            <li className="text-muted">
+              {site.location} · {site.relocation}
+            </li>
           </ul>
         </header>
 
-        <div className="mt-8 space-y-9 print:mt-6 print:space-y-6">
+        <div className="mt-8 space-y-9 print:mt-2.5 print:space-y-2">
           <section>
             <Heading>Summary</Heading>
-            <p className="leading-relaxed text-fg-2 print:text-[10.5pt]">{site.intro}</p>
+            <p className={body}>{site.intro}</p>
           </section>
 
           {workRoles.length > 0 && (
             <section>
               <Heading>Experience</Heading>
-              <div className="space-y-6">
+              <div className="space-y-6 print:space-y-1.5">
                 {workRoles.map((r) => (
                   <RoleEntry key={r.org + r.title} role={r} />
                 ))}
@@ -107,7 +115,7 @@ export default function ResumePage() {
           {leadershipRoles.length > 0 && (
             <section>
               <Heading>Leadership</Heading>
-              <div className="space-y-6">
+              <div className="space-y-6 print:space-y-1.5">
                 {leadershipRoles.map((r) => (
                   <RoleEntry key={r.org + r.title} role={r} />
                 ))}
@@ -116,19 +124,20 @@ export default function ResumePage() {
           )}
 
           <section>
-            <Heading>Selected projects</Heading>
-            <ul className="space-y-3">
-              {selected.map((p) => (
+            <Heading>Projects</Heading>
+            <ul className="space-y-3 print:space-y-1.5">
+              {resumeProjects.map((p) => (
                 <li key={p.slug} className="break-inside-avoid">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                    <h3 className="font-medium">
+                    <h3 className="font-medium print:text-[10pt]">
                       <a href={`${site.url}/work/${p.slug}`} className="link">
                         {p.title}
                       </a>
+                      {p.role && <span className="font-normal text-muted"> — {p.role}</span>}
                     </h3>
-                    <p className="font-mono text-xs text-muted">{p.stack.slice(0, 3).join(" · ")}</p>
+                    {p.year && <p className="font-mono text-xs text-muted print:text-[8pt]">{p.year}</p>}
                   </div>
-                  <p className="mt-1 text-[15px] leading-relaxed text-fg-2 print:text-[10.5pt]">{p.tagline}</p>
+                  <p className={`mt-1 print:mt-0.5 ${body}`}>{p.engineering ?? p.tagline}</p>
                 </li>
               ))}
             </ul>
@@ -136,20 +145,16 @@ export default function ResumePage() {
 
           <section>
             <Heading>Skills</Heading>
-            <dl className="space-y-2 text-[15px] print:text-[10.5pt]">
+            <dl className={`space-y-2 print:space-y-0 ${body}`}>
               {capabilities.map((c) => (
-                <div key={c.title} className="grid gap-x-4 sm:grid-cols-[11rem_1fr]">
-                  <dt className="font-medium">{c.title}</dt>
-                  <dd className="text-fg-2">{c.tools.join(", ")}</dd>
+                <div key={c.title} className="grid gap-x-4 sm:grid-cols-[11rem_1fr] print:grid-cols-[9rem_1fr]">
+                  <dt className="font-medium text-fg">{c.title}</dt>
+                  <dd>{c.tools.join(", ")}</dd>
                 </div>
               ))}
-              <div className="grid gap-x-4 sm:grid-cols-[11rem_1fr]">
-                <dt className="font-medium">Tools & practices</dt>
-                <dd className="text-fg-2">{toolbox.join(", ")}</dd>
-              </div>
-              <div className="grid gap-x-4 sm:grid-cols-[11rem_1fr]">
-                <dt className="font-medium">Strengths</dt>
-                <dd className="text-fg-2">{strengths.map((s) => s.title).join(", ")}</dd>
+              <div className="grid gap-x-4 sm:grid-cols-[11rem_1fr] print:grid-cols-[9rem_1fr]">
+                <dt className="font-medium text-fg">Also</dt>
+                <dd>{toolbox.join(", ")}</dd>
               </div>
             </dl>
           </section>
@@ -159,15 +164,16 @@ export default function ResumePage() {
               <Heading>Education</Heading>
               {education.map((e) => (
                 <div key={e.school} className="flex flex-wrap items-baseline justify-between gap-x-4">
-                  <p>
+                  <p className="print:text-[10pt]">
                     <span className="font-medium">{e.degree}</span>
                     <span className="text-fg-2">, {e.school}</span>
+                    {e.grade && <span className="text-fg-2"> · {e.grade}</span>}
                   </p>
-                  <p className="font-mono text-xs text-muted">
+                  <p className="font-mono text-xs text-muted print:text-[8pt]">
                     {educationPeriod(e)}
                   </p>
                   {e.notes && (
-                    <p className="mt-1 w-full text-[15px] text-fg-2 print:text-[10.5pt]">{e.notes}</p>
+                    <p className={`mt-1 w-full print:hidden ${body}`}>{e.notes}</p>
                   )}
                 </div>
               ))}

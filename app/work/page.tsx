@@ -5,7 +5,7 @@ import { WorkIndex } from "@/components/work-index";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected software, cloud and DevOps projects — with case studies on the problem, approach and outcome.",
+  description: "Selected software projects — with case studies on the problem, approach and outcome.",
   alternates: { canonical: "/work" },
 };
 

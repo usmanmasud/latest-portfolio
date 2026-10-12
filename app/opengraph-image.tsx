@@ -44,11 +44,11 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 34, color: "#bdbbb4", marginTop: 20 }}>{site.role}</div>
         </div>
         <div style={{ display: "flex", gap: 28, fontSize: 22, color: "#8a8882" }}>
-          <span>Software</span>
+          <span>Frontend</span>
           <span>·</span>
-          <span>Cloud Infrastructure</span>
+          <span>Backend & Mobile</span>
           <span>·</span>
-          <span>DevOps & Platform</span>
+          <span>Cloud & DevOps</span>
         </div>
       </div>
     ),
